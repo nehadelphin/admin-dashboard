@@ -1,0 +1,36 @@
+<form #v="ngForm">
+    <p style="text-align: center; margin-bottom: 25px; font-weight: bolder;">Register</p>
+
+<!-- div>label.form-label+input.form-control -->
+    <div>
+        <label for="name" class="form-label">Name</label>
+        <input name="name" id="name" type="text" class="form-control" required minlength="7" [(ngModel)]="user.name" #name="ngModel">
+        <div class="alert alert-danger" *ngIf="!v.controls['name'].valid">
+            <span *ngIf="name.errors != null && name.errors['required'] != null">Name is required</span>
+            <span *ngIf="name.errors != null && name.errors['minlength'] != null">Minimum 7 Characters Required</span>
+            <!-- <pre>
+                {{ v.controls['name'].valid | json}}
+                {{ v.controls['name'].errors | json}}
+            </pre> -->
+        </div>
+    </div>
+
+    <div>
+        <label for="email" class="form-label">Email</label>
+        <input name="email" id="email" type="email" class="form-control" required [(ngModel)]="user.email">
+    </div>
+    <div>
+        <label for="password" class="form-label">Password</label>
+        <input name="password" id="password" type="password" class="form-control" required minlength="6" [(ngModel)]="user.password">
+    </div>
+    <br>
+    <button class="btn btn-primary btn-block">Sign-up</button>
+    <br>
+    <span>
+        Already have an account? <a [routerLink]="'/login'">Sign In</a>
+    </span>
+    <!-- <pre>
+        {{ v.value | json }}
+    </pre> -->
+</form>
+

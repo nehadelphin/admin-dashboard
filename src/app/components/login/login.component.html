@@ -1,0 +1,29 @@
+<p style="text-align: center; margin-bottom: 25px; font-weight: bolder;">Login</p>
+<form novalidate [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
+    <!-- div.mb-3>label.form-label+input.form-control -->
+    <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input placeholder="john@example.com" id="email" formControlName="email" type="text" class="form-control"><br>
+        <div>
+            {{ loginForm.value.username | json }}
+        </div>
+    </div>   
+    <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input id="password" formControlName="password" type="password" class="form-control">
+        <div>
+
+        </div>
+    </div>
+    <!-- div.mb-3>input.form-check-input+label.form-check-label -->
+    <div class="mb-3">
+        <input id="rememberme" type="checkbox" class="form-check-input">
+        <label for="rememberme" class="form-check-label">Remember me</label>
+    </div>
+    <!-- button.btn.btn-primary -->
+    <button class="btn btn-primary btn-block">Submit</button><br style="clear:both">
+    <span>
+        Don't have an account? &nbsp;<a [routerLink]="'/register'">Create Account</a>
+    </span>
+    <!-- <pre>{{loginForm.value | json}}</pre> -->
+</form>

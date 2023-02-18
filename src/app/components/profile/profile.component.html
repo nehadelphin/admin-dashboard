@@ -1,0 +1,60 @@
+<div class="container">
+    <div class="row">
+      <div class="col-8">
+        <h1>My Account</h1>
+        <form novalidate #v="ngForm" class="row g-3" [formGroup]="profileForm">
+            <fieldset class="row" formGroupName="userInformation">
+                <legend>User Information</legend>
+                <div class="col-md-6">
+                    <label class="form-label" style="text-align: left;">Username</label>
+                    <input type="text" class="form-control" formControlName="username">
+                  </div>
+                  <div class="col-md-6">
+                    <label class="form-label" style="text-align: left;">Email</label>
+                    <input type="email" class="form-control"formControlName="email">
+                  </div>
+                  <div class="col-md-6">
+                      <label class="form-label" style="text-align: left;">First Name</label>
+                      <input type="text" class="form-control"formControlName="firstName">
+                  </div>
+                    <div class="col-md-6">
+                      <label class="form-label" style="text-align: left;">Last Name</label>
+                      <input type="text" class="form-control" formControlName="lastName">
+                   </div>
+            </fieldset>
+            <fieldset class="row" formGroupName="addressInformation">
+                <legend>Contact Information</legend>
+                <div class="col-12">
+                    <label class="form-label" style="text-align: left;">Address</label>
+                    <input type="text" class="form-control" formControlName="address">
+                </div>
+                <div class="col-4">
+                    <label class="form-label" style="text-align: left;">City</label>
+                    <input type="text" class="form-control" formControlName="city">
+                </div>
+                <div class="col-4">
+                    <label class="form-label" style="text-align: left;">Country</label>
+                    <input type="text" class="form-control" formControlName="country">
+                </div>
+                <div class="col-4">
+                    <label class="form-label" style="text-align: left;">Postal Code</label>
+                    <input type="text" class="form-control" formControlName="postalCode">
+                </div>
+            </fieldset>
+            <fieldset class="row" formGroupName ="aboutMeInformation">
+                <legend>About Me</legend>
+                <div class="col-12">
+                    <textarea name="aboutMe" cols="30" rows="10" formControlName="aboutMe"></textarea>
+                </div>
+            </fieldset>
+            <div class="col-12">
+                <button type="submit" class="btn btn-primary">Sign in</button>
+              </div>      
+      </form>
+      </div>
+      <div class="col-4">Image</div>
+    </div>
+  </div>
+  <pre>
+    {{ v.value | json}}
+  </pre>
